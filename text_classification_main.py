@@ -31,6 +31,7 @@ class DataAnalysis(object):
         sentences_train, sentences_test, y_train, y_test = train_test_split(sentences, y, test_size=0.25,
                                                                             random_state=1000)
         vectorizer = CountVectorizer()
+        vectorizer.fit(sentences_train)
         X_train = vectorizer.transform(sentences_train)
         X_test = vectorizer.transform(sentences_test)
         return X_train, X_test, y_train, y_test
